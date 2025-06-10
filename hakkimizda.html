@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hakkımızda - Kıvanç Doğalgaz</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f5f5f5;
+        color: #111;
+      }
+
+      header {
+        background-color: #007bff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 32px;
+        color: #fff;
+        text-shadow: 2px 2px 5px #000;
+      }
+
+      nav {
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #f1c40f;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .icerik-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        align-items: flex-start;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .foto {
+        flex: 1;
+        max-width: 350px;
+      }
+
+      .foto img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .metin {
+        flex: 2;
+        min-width: 300px;
+        max-width: 700px;
+        text-align: justify;
+      }
+
+      .metin h2 {
+        color: #007bff;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-size: 22px;
+      }
+
+      .metin p {
+        margin-bottom: 18px;
+        line-height: 1.8;
+      }
+
+      /* Scroll animasyonu */
+      .gizli {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+      }
+
+      .gorunur {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        header h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>KIVANÇ DOĞALGAZ</h1>
+    </header>
+
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="iletisim.html">İletişim</a>
+    </nav>
+
+    <div class="container">
+      <div class="icerik-wrapper">
+        <div class="foto">
+          <img src="assets/kivanc-profil.jpg" alt="Firma Yetkilisi" />
+        </div>
+
+        <div class="metin">
+          <h2 class="gizli">🏢 Hakkımızda</h2>
+          <p class="gizli">
+            <strong>Kıvanç Doğalgaz</strong>, 20 yılı aşkın süredir doğalgaz
+            sektöründe güvenilir, kaliteli ve müşteri odaklı hizmet sunmaktadır.
+            Kurulduğumuz günden bu yana her projeye kendi evimiz gibi
+            yaklaşarak, %100 müşteri memnuniyetini ilke edindik.
+          </p>
+
+          <h2 class="gizli">🌟 Vizyonumuz</h2>
+          <p class="gizli">
+            Teknolojiyi ve sektörel gelişmeleri yakından takip ederek
+            Türkiye’nin en güvenilir doğalgaz firmalarından biri olmaktır.
+          </p>
+
+          <h2 class="gizli">🎯 Misyonumuz</h2>
+          <p class="gizli">
+            Her haneye ve iş yerine güvenli, uzun ömürlü ve sürdürülebilir
+            çözümler sunmaktır.
+          </p>
+
+          <h2 class="gizli">📅 Tarihçemiz</h2>
+          <p class="gizli">
+            2004 yılında ilk doğalgaz tesisatını kurduğumuzdan bu yana, 500'ün
+            üzerinde projeyi başarıyla tamamladık. 2018 yılında ise akıllı
+            sistem entegrasyonlarına geçerek geleceğe yatırım yapmaya başladık.
+            2025 itibariyle sektörde lider konumdayız.
+          </p>
+
+          <h2 class="gizli">🤝 İlkemiz</h2>
+          <p class="gizli">
+            İşimizi seviyoruz. Ustalık, hız ve güven ilkelerimizle hareket
+            ediyor; işimizi zamanında ve eksiksiz teslim etmeye büyük özen
+            gösteriyoruz.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const gozetlenen = document.querySelectorAll(".gizli");
+
+      const gozetleyici = new IntersectionObserver((girisler) => {
+        girisler.forEach((giris) => {
+          if (giris.isIntersecting) {
+            giris.target.classList.add("gorunur");
+            gozetleyici.unobserve(giris.target);
+          }
+        });
+      });
+
+      gozetlenen.forEach((el) => gozetleyici.observe(el));
+    </script>
+  </body>
+</html>
