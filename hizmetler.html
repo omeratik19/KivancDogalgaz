@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hizmetlerimiz - Kıvanç Doğalgaz</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: url("assets/hizmetler-arka.jpg") no-repeat center
+          center/cover;
+        color: white;
+      }
+
+      header {
+        background-color: #007bff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      header h1 {
+        font-size: 32px;
+        color: #fff;
+        text-shadow: 2px 2px 5px #000;
+      }
+
+      nav {
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 20px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: #f1c40f;
+      }
+
+      .hizmetler-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 40px;
+        max-width: 1400px;
+        margin: auto;
+      }
+
+      .kart-kapsayici {
+        perspective: 1000px;
+      }
+
+      .kart {
+        width: 100%;
+        aspect-ratio: 3 / 4;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+      }
+
+      .kart-kapsayici:hover .kart,
+      .kart-kapsayici:active .kart {
+        transform: rotateY(180deg);
+      }
+
+      .on,
+      .arka {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        backface-visibility: hidden;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+      }
+
+      .on img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .arka {
+        background-color: rgba(0, 0, 0, 0.85);
+        transform: rotateY(180deg);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .arka h2 {
+        font-size: 18px;
+        color: #ffd700;
+        margin-bottom: 10px;
+      }
+
+      .arka p {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+
+      @media (max-width: 1200px) {
+        .hizmetler-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .hizmetler-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hizmetler-grid {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .hizmetler-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sss-baslik {
+        text-align: center;
+        font-size: 26px;
+        margin-top: 60px;
+        color: #ffd700;
+      }
+
+      .sss-container {
+        max-width: 900px;
+        margin: 30px auto 80px auto;
+        padding: 0 20px;
+      }
+
+      details {
+        background: rgba(0, 0, 0, 0.7);
+        margin-bottom: 15px;
+        padding: 15px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      details[open] {
+        background: rgba(0, 0, 0, 0.9);
+      }
+
+      details summary {
+        font-size: 18px;
+        font-weight: bold;
+        color: #ffffff;
+        outline: none;
+      }
+
+      details p {
+        margin-top: 10px;
+        color: #ddd;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Ana Sayfa ile aynı HEADER -->
+    <header>
+      <h1>KIVANÇ DOĞALGAZ</h1>
+    </header>
+
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hakkimizda.html">Hakkımızda</a>
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="iletisim.html">İletişim</a>
+    </nav>
+
+    <div class="hizmetler-grid">
+      <!-- Tüm hizmet kartları -->
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/dogalgaz.jpg" alt="Doğalgaz" />
+          </div>
+          <div class="arka">
+            <h2>Doğalgaz</h2>
+            <p><strong>Ne yapıyoruz?</strong> Tesisat planlama ve montaj.</p>
+            <p><strong>Neden önemli?</strong> Güvenlik ve verim sağlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/proje.jpg" alt="Proje" />
+          </div>
+          <div class="arka">
+            <h2>Proje</h2>
+            <p><strong>Ne yapıyoruz?</strong> Proje çizimi ve onayı.</p>
+            <p><strong>Neden önemli?</strong> Onaylı sistem için şarttır.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/kombi.jpg" alt="Kombi" />
+          </div>
+          <div class="arka">
+            <h2>Kombi</h2>
+            <p><strong>Ne yapıyoruz?</strong> Montaj, bakım ve onarım.</p>
+            <p><strong>Neden önemli?</strong> Verim ve tasarruf sağlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/radyator.jpg" alt="Radyatör" />
+          </div>
+          <div class="arka">
+            <h2>Radyatör</h2>
+            <p><strong>Ne yapıyoruz?</strong> Montaj ve yer değişimi.</p>
+            <p><strong>Neden önemli?</strong> Isı dengesini sağlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/kalorifer.jpg" alt="Kalorifer" />
+          </div>
+          <div class="arka">
+            <h2>Kalorifer</h2>
+            <p><strong>Ne yapıyoruz?</strong> Tesisat kurulumu ve bakımı.</p>
+            <p><strong>Neden önemli:</strong> Verimli ısınma sağlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/yerden-isitma.jpg" alt="Yerden Isıtma" />
+          </div>
+          <div class="arka">
+            <h2>Yerden Isıtma</h2>
+            <p><strong>Ne yapıyoruz?</strong> Konforlu ısıtma kurulumu.</p>
+            <p><strong>Neden önemli?</strong> Tasarruf ve estetik sağlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/klima.jpg" alt="Klima" />
+          </div>
+          <div class="arka">
+            <h2>Klima</h2>
+            <p><strong>Ne yapıyoruz?</strong> Montaj ve gaz dolumu.</p>
+            <p><strong>Neden önemli?</strong> Performans ve konfor sunar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/havalandirma.jpg" alt="Havalandırma" />
+          </div>
+          <div class="arka">
+            <h2>Havalandırma</h2>
+            <p><strong>Ne yapıyoruz?</strong> Hava sirkülasyonu sistemleri.</p>
+            <p><strong>Neden önemli?</strong> Temiz hava sağlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/yangin.jpg" alt="Yangın Tesisatı" />
+          </div>
+          <div class="arka">
+            <h2>Yangın Tesisatı</h2>
+            <p><strong>Ne yapıyoruz?</strong> Sprinkler ve borulama.</p>
+            <p><strong>Neden önemli?</strong> Acil durum müdahalesi sağlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/pissu.jpg" alt="Pis Su" />
+          </div>
+          <div class="arka">
+            <h2>Pis Su</h2>
+            <p><strong>Ne yapıyoruz?</strong> Atık su borulama işlemleri.</p>
+            <p>
+              <strong>Neden önemli?</strong> Sağlıklı tahliye sistemi sunar.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/temizsu.jpg" alt="Temiz Su" />
+          </div>
+          <div class="arka">
+            <h2>Temiz Su</h2>
+            <p><strong>Ne yapıyoruz?</strong> Şebeke suyu bağlantıları.</p>
+            <p><strong>Neden önemli?</strong> Temiz suya erişim sağlar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="kart-kapsayici">
+        <div class="kart">
+          <div class="on">
+            <img src="assets/hizmetler/vitrifiye.jpg" alt="Vitrifiye" />
+          </div>
+          <div class="arka">
+            <h2>Vitrifiye Montajı</h2>
+            <p><strong>Ne yapıyoruz?</strong> Lavabo, klozet, duş montajı.</p>
+            <p><strong>Neden önemli?</strong> Estetik ve sağlam çözüm sunar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SSS -->
+    <h2 class="sss-baslik">Sıkça Sorulan Sorular</h2>
+    <div class="sss-container">
+      <details>
+        <summary>Doğalgaz tesisatınız ne kadar sürede tamamlanır?</summary>
+        <p>Ortalama 1–2 gün, onay süreçleriyle 3–5 gün sürebilir.</p>
+      </details>
+      <details>
+        <summary>Kombi montajı sonrası hemen kullanılabilir mi?</summary>
+        <p>Evet, gaz açımı sonrası kombiniz hemen çalışır.</p>
+      </details>
+      <details>
+        <summary>Hangi bölgelerde hizmet veriyorsunuz?</summary>
+        <p>İstanbul geneli ve çevre ilçelerde hizmet vermekteyiz.</p>
+      </details>
+      <details>
+        <summary>Yerden ısıtma mı radyatör mü daha iyi?</summary>
+        <p>Yerden ısıtma genellikle daha konforlu ve tasarrufludur.</p>
+      </details>
+      <details>
+        <summary>Fiyat teklifi almak ücretli mi?</summary>
+        <p>Hayır, keşif ve fiyatlandırma tamamen ücretsizdir.</p>
+      </details>
+    </div>
+  </body>
+</html>
