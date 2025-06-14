@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kıvanç Doğalgaz | Ana Sayfa</title>
-
-    <!-- 🖼️ Arka Plan ve Stil -->
     <style>
       * {
         margin: 0;
@@ -15,98 +13,288 @@
 
       body {
         font-family: "Segoe UI", sans-serif;
-        background: url("img/ana-arkaplan.jpg") no-repeat center center fixed; /* 📌 Ana sayfaya özel arkaplan */
+        color: #333;
+        background: url("img/ana-arkaplan.jpg") no-repeat center center;
         background-size: cover;
-        color: #fff;
+        background-attachment: scroll;
       }
 
       header {
-        background-color: #007bff; /* 🔵 Mavi arka plan */
-        padding: 20px;
-        text-align: center;
-      }
-
-      header h1 {
-        font-size: 32px;
-        color: #fff;
-        text-shadow: 2px 2px 5px #000;
-      }
-
-      nav {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: #ffffffdd;
+        padding: 20px 40px;
         display: flex;
-        justify-content: center;
-        padding: 10px 0;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-weight: bold;
+        font-size: 24px;
+        color: #003366;
       }
 
       nav a {
-        color: #fff;
+        margin: 0 12px;
         text-decoration: none;
-        margin: 0 20px;
-        font-weight: bold;
-        transition: 0.3s;
-      }
-
-      nav a:hover {
-        color: #f1c40f;
+        color: #003366;
+        font-weight: 500;
       }
 
       .hero {
+        padding: 100px 20px 60px;
         text-align: center;
-        padding: 100px 20px;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(255, 255, 255, 0.9);
       }
 
-      .hero h2 {
-        font-size: 40px;
+      .hero h1 {
+        font-size: 36px;
+        color: #003366;
         margin-bottom: 20px;
       }
 
-      .hero p {
-        font-size: 20px;
-        max-width: 700px;
-        margin: auto;
-      }
-
-      .cta {
+      .buttons {
         margin-top: 30px;
-        display: inline-block;
-        background-color: #e74c3c;
-        color: #fff;
-        padding: 12px 30px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background 0.3s;
       }
 
-      .cta:hover {
-        background-color: #c0392b;
+      .buttons a {
+        display: inline-block;
+        margin: 10px;
+        padding: 12px 25px;
+        font-weight: bold;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: 0.3s;
+      }
+
+      .blue {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .white {
+        background-color: white;
+        color: #003366;
+        border: 1px solid #ccc;
+      }
+
+      .white:hover {
+        background-color: #f0f0f0;
+      }
+
+      .slider-bolumu {
+        width: 100%;
+        max-width: 1000px;
+        height: 300px;
+        margin: 40px auto;
+        border-radius: 10px;
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+        animation: gorselSlider 24s infinite;
+      }
+
+      @keyframes gorselSlider {
+        0% {
+          background-image: url("img/slider1.jpg");
+        }
+        25% {
+          background-image: url("img/slider2.jpg");
+        }
+        50% {
+          background-image: url("img/slider3.jpg");
+        }
+        75% {
+          background-image: url("img/slider4.jpg");
+        }
+        100% {
+          background-image: url("img/slider1.jpg");
+        }
+      }
+
+      .section {
+        background-color: #f9f9f9cc;
+        padding: 50px 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .card {
+        background: white;
+        padding: 20px;
+        width: 250px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h3 {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #003366;
+      }
+
+      .card p {
+        font-size: 14px;
+        margin-top: 8px;
+        color: #444;
+      }
+
+      .announcements {
+        padding: 30px 20px;
+        background: white;
+      }
+
+      .announcements h4 {
+        font-size: 18px;
+        color: #003366;
+        margin-bottom: 15px;
+      }
+
+      .announcement {
+        background: #f5f5f5;
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      footer {
+        background-color: #003366;
+        color: white;
+        padding: 40px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      footer div {
+        margin-bottom: 20px;
+      }
+
+      footer h5 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      footer a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .section {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card {
+          width: 90%;
+        }
+
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .buttons a {
+          display: block;
+          width: 80%;
+          margin: 10px auto;
+        }
       }
     </style>
   </head>
   <body>
-    <!-- 🔻 Üst Başlık -->
+    <!-- 🔷 Header -->
     <header>
-      <h1>KIVANÇ DOĞALGAZ</h1>
+      <div class="logo">KIVANÇ DOĞALGAZ</div>
+      <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
     </header>
 
-    <!-- 📌 Menü -->
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="hakkimizda.html">Hakkımızda</a>
-      <a href="hizmetler.html">Hizmetler</a>
-      <a href="iletisim.html">İletişim</a>
-    </nav>
-
-    <!-- 🎯 Hero Bölümü -->
+    <!-- 🔹 Hero Bölümü -->
     <section class="hero">
-      <h2>Güvenli ve Profesyonel Doğalgaz Hizmeti</h2>
-      <p>
-        Uzman ekibimizle doğalgaz tesisatı, kombi montajı ve bakım hizmetlerinde
-        Kıvanç Doğalgaz yanınızda.
-      </p>
-      <a href="iletisim.html" class="cta">Hemen İletişime Geç</a>
+      <h1>Güvenli, Ekonomik ve Çevre Dostu Doğalgaz Hizmeti</h1>
+      <div class="buttons">
+        <a href="iletisim.html" class="blue">İletişime Geç</a>
+        <a href="#" class="white">Yeni Bağlantı Başvurusu</a>
+        <a href="#" class="white">Faturanı Öde</a>
+      </div>
     </section>
+
+    <!-- 📸 Görsel Değişimli Slider Alanı -->
+    <section class="slider-bolumu"></section>
+
+    <!-- 🔸 Hizmet Kartları -->
+    <section class="section">
+      <div class="card">
+        <h3>Fatura Ödeme</h3>
+        <p>Doğalgaz faturanızı görüntüleyin ve kolayca ödeyin.</p>
+      </div>
+      <div class="card">
+        <h3>Yeni Bağlantı</h3>
+        <p>Yeni doğalgaz bağlantısı için başvurunuzu iletin.</p>
+      </div>
+      <div class="card">
+        <h3>Sorun Bildir</h3>
+        <p>Kaçak veya arıza gibi problemleri bize bildirin.</p>
+      </div>
+      <div class="card">
+        <h3>Taşınma Bildirimi</h3>
+        <p>Taşındığınızda bizi haberdar edin, bağlantınızı güncelleyelim.</p>
+      </div>
+    </section>
+
+    <!-- 🗞️ Duyurular -->
+    <section class="announcements">
+      <h4>Duyurular</h4>
+      <div class="announcement">
+        <strong>Planlı Bakım:</strong> 16 Mayıs saat 22:00 - 04:00 arası
+        doğalgaz hattında bakım çalışması yapılacaktır.
+      </div>
+      <div class="announcement">
+        <strong>Kış Güvenliği:</strong> Evinizi sıcak ve güvenli tutmak için bu
+        kış güvenlik ipuçlarını takip edin.
+      </div>
+    </section>
+
+    <!-- 🔻 Footer -->
+    <footer>
+      <div>
+        <h5>Müşteri Hizmetleri</h5>
+        <a href="iletisim.html">Bize Ulaşın</a>
+        <a href="#">Destek Merkezi</a>
+        <a href="#">Geri Bildirim</a>
+      </div>
+      <div>
+        <h5>Bilgilendirme</h5>
+        <a href="#">Enerji Tasarrufu</a>
+        <a href="#">Tarifeler</a>
+        <a href="#">Gizlilik Politikası</a>
+      </div>
+      <div>
+        <h5>Hakkımızda</h5>
+        <a href="#">Şirket Bilgileri</a>
+        <a href="#">Kariyer</a>
+      </div>
+      <div>
+        <p>
+          © 2025 Kıvanç Doğalgaz<br />
+          Tüm hakları saklıdır.
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

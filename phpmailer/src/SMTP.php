@@ -1,0 +1,1 @@
+<?php // Bu dosya PHPMailer'in kendi kodlarıyla değiştirilmelidir ?>

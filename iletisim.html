@@ -6,196 +6,240 @@
     <title>Kıvanç Doğalgaz | İletişim</title>
     <style>
       * {
+        box-sizing: border-box;
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", sans-serif;
-        background: url("img/iletisim-arka.jpg") no-repeat center center fixed;
-        background-size: cover;
-        color: #fff;
-        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
       }
 
+      /* HEADER */
       header {
-        background-color: #007bff;
-        padding: 20px;
-      }
-
-      header h1 {
-        font-size: 32px;
-        color: #fff;
-        text-shadow: 2px 2px 5px #000;
-      }
-
-      nav {
-        background-color: rgba(0, 0, 0, 0.8);
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 10px 0;
-      }
-
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        margin: 10px 20px;
-        font-weight: bold;
-        transition: 0.3s;
-      }
-
-      nav a:hover {
-        color: #f1c40f;
-      }
-
-      .hero {
-        padding: 80px 20px 40px;
         background-color: white;
-        color: #000;
+        padding: 15px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
 
-      .hero h2 {
-        font-size: 36px;
+      .logo {
+        font-weight: bold;
+        font-size: 22px;
+        color: #003366;
+        letter-spacing: 1px;
+        margin-left: 0;
+      }
+
+      .menu a {
+        margin-left: 30px;
+        text-decoration: none;
+        font-weight: 500;
+        color: #003366;
+        transition: 0.2s;
+      }
+
+      .menu a:hover {
+        color: #ff6600;
+      }
+
+      /* Ana İçerik */
+      .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        padding: 0 20px;
+      }
+
+      .info-section {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .info-section h2 {
+        font-size: 28px;
         margin-bottom: 10px;
       }
 
-      .hero p {
-        font-size: 18px;
+      .info-section p {
+        margin-bottom: 20px;
+        color: #555;
       }
 
-      .info p {
-        font-size: 18px;
-        margin: 20px 0;
-        color: #4dd;
+      .info-item {
+        margin-bottom: 15px;
+        font-size: 16px;
       }
 
-      .btn-group {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-        margin: 30px 0 10px;
+      .info-item i {
+        margin-right: 10px;
       }
 
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 20px;
-        font-weight: bold;
+      .map {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .map iframe {
+        width: 100%;
+        height: 250px;
+        border: 0;
         border-radius: 8px;
-        text-decoration: none;
+      }
+
+      .form-section {
+        max-width: 1000px;
+        margin: 30px auto 60px;
+        padding: 0 20px;
+      }
+
+      .form-section h3 {
+        margin-bottom: 20px;
+        font-size: 22px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      input,
+      textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        resize: vertical;
+      }
+
+      button {
+        background-color: #ff6600;
         color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
         transition: 0.3s;
       }
 
-      .btn img {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
+      button:hover {
+        background-color: #e05500;
+      }
+
+      /* Butonlar */
+      .social-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 20px 0 0;
+        flex-wrap: wrap;
+      }
+
+      .social-buttons a {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 15px;
       }
 
       .whatsapp-btn {
         background-color: #25d366;
       }
 
-      .whatsapp-btn:hover {
-        background-color: #1ebe5d;
-      }
-
       .instagram-btn {
         background-color: #e1306c;
       }
 
-      .instagram-btn:hover {
-        background-color: #c72d60;
+      .social-buttons img {
+        width: 22px;
+        height: 22px;
       }
 
-      .footer-mail {
-        font-size: 18px;
-        margin: 20px 0;
-      }
-
-      .footer-mail a {
-        color: #4dd;
-        text-decoration: none;
-      }
-
-      .map-container {
-        margin: 30px auto 60px;
-        max-width: 800px;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-      }
-
-      .map-container iframe {
-        width: 100%;
-        height: 350px;
-        border: 0;
-      }
-
-      @media (max-width: 600px) {
-        .hero h2 {
-          font-size: 28px;
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
         }
 
-        .btn {
-          padding: 10px 16px;
-          font-size: 16px;
+        .menu {
+          margin-top: 10px;
         }
 
-        .btn img {
-          width: 20px;
-          height: 20px;
+        .menu a {
+          margin: 5px 10px 0 0;
         }
 
-        .map-container iframe {
-          height: 250px;
+        .container {
+          flex-direction: column;
         }
       }
     </style>
+
+    <script>
+      function kontrolEt(e) {
+        const ad = document.getElementById("ad").value.trim();
+        const mail = document.getElementById("mail").value.trim();
+        const mesaj = document.getElementById("mesaj").value.trim();
+        if (!ad || !mail || !mesaj) {
+          alert("Lütfen tüm alanları doldurun.");
+          e.preventDefault();
+        }
+      }
+    </script>
   </head>
   <body>
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
-      <h1>KIVANÇ DOĞALGAZ</h1>
+      <div class="logo">KIVANÇ DOĞALGAZ</div>
+      <nav class="menu">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
     </header>
 
-    <!-- Menü -->
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="hakkimizda.html">Hakkımızda</a>
-      <a href="hizmetler.html">Hizmetler</a>
-      <a href="iletisim.html">İletişim</a>
-    </nav>
+    <!-- İLETİŞİM ve HARİTA -->
+    <div class="container">
+      <div class="info-section">
+        <h2>İletişim</h2>
+        <p>Sorularınız için bizimle iletişime geçebilirsiniz.</p>
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i> Kocaeli, Türkiye
+        </div>
+        <div class="info-item">
+          <i class="fas fa-phone"></i> +90 555 111 2233
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i> info@kivancdogalgaz.com
+        </div>
+      </div>
 
-    <!-- Hero -->
-    <section class="hero">
-      <h2>İletişime Geç</h2>
-      <p>
-        Her türlü soru ve destek için aşağıdaki bilgilerden bize
-        ulaşabilirsiniz.
-      </p>
-    </section>
-
-    <!-- Bilgiler -->
-    <div class="info">
-      <p>📍 Kocaeli, Türkiye</p>
-      <p>
-        📞 <a href="tel:+905551112233" style="color: #4dd">+90 555 111 2233</a>
-      </p>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps?q=Kocaeli,+Türkiye&output=embed"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
     </div>
 
-    <!-- Butonlar -->
-    <div class="btn-group">
-      <a
-        class="btn whatsapp-btn"
-        href="https://wa.me/905551112233"
-        target="_blank"
-      >
+    <!-- SOSYAL MEDYA BUTONLARI -->
+    <div class="social-buttons">
+      <a class="whatsapp-btn" href="https://wa.me/905551112233" target="_blank">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
           alt="WhatsApp"
@@ -203,8 +247,8 @@
         WhatsApp'tan Yaz
       </a>
       <a
-        class="btn instagram-btn"
-        href="https://www.instagram.com/kivancdogalgaz/"
+        class="instagram-btn"
+        href="https://instagram.com/kivancdogalgaz"
         target="_blank"
       >
         <img
@@ -215,24 +259,30 @@
       </a>
     </div>
 
-    <!-- Mail -->
-    <div class="footer-mail">
-      <p>
-        ✉️ <a href="mailto:info@kivancdogalgaz.com">info@kivancdogalgaz.com</a>
-      </p>
+    <!-- FORM -->
+    <div class="form-section">
+      <h3>İletişim Formu</h3>
+      <form action="form-gonder.php" method="POST" onsubmit="kontrolEt(event)">
+        <input type="text" id="ad" name="ad" placeholder="Adınız" required />
+        <input
+          type="email"
+          id="mail"
+          name="mail"
+          placeholder="E-posta Adresiniz"
+          required
+        />
+        <textarea
+          id="mesaj"
+          name="mesaj"
+          rows="5"
+          placeholder="Mesajınız"
+          required
+        ></textarea>
+        <button type="submit">Gönder</button>
+      </form>
     </div>
 
-    <!-- Harita -->
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps?q=Kocaeli,+Türkiye&output=embed"
-        loading="lazy"
-        allowfullscreen
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
-    </div>
-
-    <!-- FontAwesome -->
+    <!-- FontAwesome ikonları -->
     <script
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"

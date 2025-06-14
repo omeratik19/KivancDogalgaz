@@ -3,188 +3,289 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hakkımızda - Kıvanç Doğalgaz</title>
+    <title>Hakkımızda | Kıvanç Doğalgaz</title>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
-
       body {
         font-family: "Segoe UI", sans-serif;
-        background-color: #f5f5f5;
-        color: #111;
+        background-color: #ffffff;
+        color: #333;
+        line-height: 1.6;
       }
-
       header {
-        background-color: #007bff;
-        padding: 20px;
-        text-align: center;
-      }
-
-      header h1 {
-        font-size: 32px;
-        color: #fff;
-        text-shadow: 2px 2px 5px #000;
-      }
-
-      nav {
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: white;
+        padding: 20px 40px;
         display: flex;
-        justify-content: center;
-        padding: 10px 0;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #ddd;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
-
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 20px;
+      header .logo {
+        font-size: 22px;
         font-weight: bold;
+        color: #003366;
+      }
+      nav a {
+        margin-left: 30px;
+        text-decoration: none;
+        color: #003366;
+        font-weight: 500;
         transition: 0.3s;
       }
-
       nav a:hover {
-        color: #f1c40f;
+        color: #f25c05;
       }
-
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 20px;
+      .bolum {
+        padding: 50px 20px;
         max-width: 1200px;
         margin: auto;
       }
-
-      .icerik-wrapper {
-        display: flex;
-        flex-direction: row;
-        gap: 40px;
-        align-items: flex-start;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .foto {
-        flex: 1;
-        max-width: 350px;
-      }
-
-      .foto img {
-        width: 100%;
-        border-radius: 20px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-      }
-
-      .metin {
-        flex: 2;
-        min-width: 300px;
-        max-width: 700px;
-        text-align: justify;
-      }
-
-      .metin h2 {
-        color: #007bff;
-        margin-top: 30px;
-        margin-bottom: 10px;
-        font-size: 22px;
-      }
-
-      .metin p {
-        margin-bottom: 18px;
-        line-height: 1.8;
-      }
-
-      /* Scroll animasyonu */
-      .gizli {
+      .satir,
+      .timeline,
+      .yorumlar,
+      .iletisim-cta {
         opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease-out;
       }
-
-      .gorunur {
-        opacity: 1;
-        transform: translateY(0);
+      .satir {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin: 40px 0;
+        align-items: center;
       }
-
+      .yazi {
+        flex: 1;
+        min-width: 280px;
+      }
+      .resim {
+        flex: 1;
+        min-width: 280px;
+      }
+      .resim img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .bolum-baslik {
+        color: #f25c05;
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      ul li {
+        margin-bottom: 8px;
+      }
+      .timeline {
+        border-left: 4px solid #f25c05;
+        margin: 40px 0;
+        padding-left: 20px;
+      }
+      .timeline div {
+        margin-bottom: 20px;
+      }
+      .yorumlar {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 40px;
+      }
+      .yorumlar blockquote {
+        margin-bottom: 10px;
+        font-style: italic;
+        color: #555;
+      }
+      .iletisim-cta {
+        background-color: #f25c05;
+        color: white;
+        text-align: center;
+        padding: 30px;
+        border-radius: 10px;
+        margin: 60px auto;
+      }
+      .iletisim-cta a {
+        color: white;
+        font-weight: bold;
+        text-decoration: underline;
+      }
       @media (max-width: 768px) {
-        header h1 {
-          font-size: 24px;
+        .satir {
+          flex-direction: column;
+        }
+        nav a {
+          margin-left: 15px;
+          font-size: 14px;
+        }
+        header {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>KIVANÇ DOĞALGAZ</h1>
+      <div class="logo">KIVANÇ DOĞALGAZ</div>
+      <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="iletisim.html">İletişim</a>
+      </nav>
     </header>
 
-    <nav>
-      <a href="index.html">Ana Sayfa</a>
-      <a href="hakkimizda.html">Hakkımızda</a>
-      <a href="hizmetler.html">Hizmetler</a>
-      <a href="iletisim.html">İletişim</a>
-    </nav>
-
-    <div class="container">
-      <div class="icerik-wrapper">
-        <div class="foto">
-          <img src="assets/kivanc-profil.jpg" alt="Firma Yetkilisi" />
+    <div class="bolum">
+      <div
+        class="satir"
+        data-aos="fade-right"
+        data-aos-duration="1200"
+        data-aos-offset="200"
+      >
+        <div class="yazi">
+          <div class="bolum-baslik">2004’te Başladık</div>
+          <p>
+            Kıvanç Doğalgaz, 2004 yılında sektöre adım attı. İlk günden itibaren
+            amacımız güvenli ve sağlam doğalgaz çözümleri sunmaktı.
+          </p>
+          <p>
+            Bugün de aynı titizlikle, her eve ve iş yerine güvenilir enerji
+            sağlıyoruz.
+          </p>
         </div>
+        <div class="resim">
+          <img src="assets/kombi.png" alt="Kombi Görseli" />
+        </div>
+      </div>
 
-        <div class="metin">
-          <h2 class="gizli">🏢 Hakkımızda</h2>
-          <p class="gizli">
-            <strong>Kıvanç Doğalgaz</strong>, 20 yılı aşkın süredir doğalgaz
-            sektöründe güvenilir, kaliteli ve müşteri odaklı hizmet sunmaktadır.
-            Kurulduğumuz günden bu yana her projeye kendi evimiz gibi
-            yaklaşarak, %100 müşteri memnuniyetini ilke edindik.
+      <div
+        class="satir"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-offset="200"
+      >
+        <div class="yazi">
+          <div class="bolum-baslik">Misyonumuz</div>
+          <p>
+            Her haneye güvenle doğalgaz ulaştırmak. Emniyet, kalite ve müşteri
+            memnuniyetini her zaman öncelikli tutuyoruz.
           </p>
-
-          <h2 class="gizli">🌟 Vizyonumuz</h2>
-          <p class="gizli">
-            Teknolojiyi ve sektörel gelişmeleri yakından takip ederek
-            Türkiye’nin en güvenilir doğalgaz firmalarından biri olmaktır.
-          </p>
-
-          <h2 class="gizli">🎯 Misyonumuz</h2>
-          <p class="gizli">
-            Her haneye ve iş yerine güvenli, uzun ömürlü ve sürdürülebilir
-            çözümler sunmaktır.
-          </p>
-
-          <h2 class="gizli">📅 Tarihçemiz</h2>
-          <p class="gizli">
-            2004 yılında ilk doğalgaz tesisatını kurduğumuzdan bu yana, 500'ün
-            üzerinde projeyi başarıyla tamamladık. 2018 yılında ise akıllı
-            sistem entegrasyonlarına geçerek geleceğe yatırım yapmaya başladık.
-            2025 itibariyle sektörde lider konumdayız.
-          </p>
-
-          <h2 class="gizli">🤝 İlkemiz</h2>
-          <p class="gizli">
-            İşimizi seviyoruz. Ustalık, hız ve güven ilkelerimizle hareket
-            ediyor; işimizi zamanında ve eksiksiz teslim etmeye büyük özen
-            gösteriyoruz.
+        </div>
+        <div class="yazi">
+          <div class="bolum-baslik">Vizyonumuz</div>
+          <p>
+            Doğalgaz sektöründe en güvenilir ve tercih edilen firma olmak.
+            Sürekli kendimizi geliştiriyor, yenilikçi çözümler sunuyoruz.
           </p>
         </div>
       </div>
+
+      <div
+        class="satir"
+        data-aos="zoom-in"
+        data-aos-duration="1200"
+        data-aos-offset="200"
+      >
+        <div class="yazi">
+          <div class="bolum-baslik">Değerlerimiz</div>
+          <ul>
+            <li>
+              <strong>Müşteri Odaklılık:</strong> Her zaman müşteri
+              memnuniyetini ön planda tutarız.
+            </li>
+            <li>
+              <strong>Güvenlik:</strong> En yüksek güvenlik standartlarına uygun
+              çalışırız.
+            </li>
+            <li>
+              <strong>Dürüstlük:</strong> Açık ve dürüst iletişime önem veririz.
+            </li>
+            <li>
+              <strong>Kalite:</strong> Yüksek kaliteli ürün ve hizmetler
+              sunarız.
+            </li>
+          </ul>
+        </div>
+        <div class="resim">
+          <img src="assets/teknisyen1.png" alt="Teknisyen Görseli" />
+        </div>
+      </div>
+
+      <div
+        class="satir"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-offset="200"
+      >
+        <div class="yazi">
+          <div class="bolum-baslik">Kurucu Mesajı</div>
+          <p>
+            Bu yola çıkarken önceliğim her zaman güvenlikti. İlk tesisatımızdan
+            bu yana, titizlikle ve dikkatle çalışıyorum.
+          </p>
+          <p>
+            İnsanların evlerine güvenli bir şekilde doğalgaz ulaştırmanın
+            gururunu yaşıyorum.
+          </p>
+        </div>
+        <div class="resim">
+          <img src="assets/kurucu.jpg" alt="Kurucu Fotoğrafı" />
+        </div>
+      </div>
+
+      <div
+        class="timeline"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-offset="200"
+      >
+        <div><strong>2004:</strong> İlk tesisat hizmeti verildi.</div>
+        <div><strong>2010:</strong> 500+ müşteriye ulaşıldı.</div>
+        <div><strong>2018:</strong> Akıllı sistemlere geçiş yapıldı.</div>
+        <div>
+          <strong>2024:</strong> Kocaeli genelinde hizmet ağı genişledi.
+        </div>
+      </div>
+
+      <div
+        class="yorumlar"
+        data-aos="fade-up"
+        data-aos-duration="1200"
+        data-aos-offset="200"
+      >
+        <blockquote>
+          "Evimize doğalgaz çekimi sürecinde her şey çok hızlı ve temizdi.
+          Teşekkür ederiz."
+        </blockquote>
+        <cite>– Ayşe Hanım, İzmit</cite>
+      </div>
+
+      <div
+        class="iletisim-cta"
+        data-aos="zoom-in"
+        data-aos-duration="1200"
+        data-aos-offset="200"
+      >
+        <p>Güvenli enerji çözümlerimizle tanışmak ister misiniz?</p>
+        <p><a href="iletisim.html">Hemen bizimle iletişime geçin!</a></p>
+      </div>
     </div>
 
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      const gozetlenen = document.querySelectorAll(".gizli");
-
-      const gozetleyici = new IntersectionObserver((girisler) => {
-        girisler.forEach((giris) => {
-          if (giris.isIntersecting) {
-            giris.target.classList.add("gorunur");
-            gozetleyici.unobserve(giris.target);
-          }
-        });
+      AOS.init({
+        once: false,
+        mirror: true,
       });
-
-      gozetlenen.forEach((el) => gozetleyici.observe(el));
     </script>
   </body>
 </html>
