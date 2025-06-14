@@ -17,7 +17,6 @@
         color: #333;
       }
 
-      /* HEADER */
       header {
         background-color: white;
         padding: 15px 20px;
@@ -47,7 +46,6 @@
         color: #ff6600;
       }
 
-      /* Ana İçerik */
       .container {
         max-width: 1100px;
         margin: 40px auto;
@@ -134,7 +132,6 @@
         background-color: #e05500;
       }
 
-      /* Butonlar */
       .social-buttons {
         display: flex;
         justify-content: center;
@@ -168,6 +165,15 @@
         height: 22px;
       }
 
+      #tesekkurMesaji {
+        display: none;
+        color: green;
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+      }
+
       @media (max-width: 768px) {
         header {
           flex-direction: column;
@@ -187,18 +193,6 @@
         }
       }
     </style>
-
-    <script>
-      function kontrolEt(e) {
-        const ad = document.getElementById("ad").value.trim();
-        const mail = document.getElementById("mail").value.trim();
-        const mesaj = document.getElementById("mesaj").value.trim();
-        if (!ad || !mail || !mesaj) {
-          alert("Lütfen tüm alanları doldurun.");
-          e.preventDefault();
-        }
-      }
-    </script>
   </head>
   <body>
     <!-- HEADER -->
@@ -212,7 +206,7 @@
       </nav>
     </header>
 
-    <!-- İLETİŞİM ve HARİTA -->
+    <!-- İLETİŞİM VE HARİTA -->
     <div class="container">
       <div class="info-section">
         <h2>İletişim</h2>
@@ -227,12 +221,10 @@
           <i class="fas fa-envelope"></i> info@kivancdogalgaz.com
         </div>
       </div>
-
       <div class="map">
         <iframe
           src="https://www.google.com/maps?q=Kocaeli,+Türkiye&output=embed"
           loading="lazy"
-          allowfullscreen
         ></iframe>
       </div>
     </div>
@@ -262,24 +254,25 @@
     <!-- FORM -->
     <div class="form-section">
       <h3>İletişim Formu</h3>
-      <form action="form-gonder.php" method="POST" onsubmit="kontrolEt(event)">
+      <form id="iletisimForm">
         <input type="text" id="ad" name="ad" placeholder="Adınız" required />
         <input
           type="email"
           id="mail"
-          name="mail"
+          name="email"
           placeholder="E-posta Adresiniz"
           required
         />
         <textarea
           id="mesaj"
-          name="mesaj"
+          name="message"
           rows="5"
           placeholder="Mesajınız"
           required
         ></textarea>
         <button type="submit">Gönder</button>
       </form>
+      <p id="tesekkurMesaji">Teşekkürler! Mesajınız başarıyla gönderildi.</p>
     </div>
 
     <!-- FontAwesome ikonları -->
@@ -287,5 +280,36 @@
       src="https://kit.fontawesome.com/a076d05399.js"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Form Gönderme Scripti -->
+    <script>
+      document
+        .getElementById("iletisimForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const form = e.target;
+          const formData = new FormData(form);
+
+          const response = await fetch("https://formspree.io/f/xldnndoa", {
+            method: "POST",
+            body: formData,
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (response.ok) {
+            const mesaj = document.getElementById("tesekkurMesaji");
+            mesaj.style.display = "block";
+            form.reset();
+            setTimeout(() => {
+              mesaj.style.display = "none";
+            }, 5000);
+          } else {
+            alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+          }
+        });
+    </script>
   </body>
 </html>
