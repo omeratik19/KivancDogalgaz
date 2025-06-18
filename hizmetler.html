@@ -2,7 +2,7 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hizmetler | Kıvanç Doğalgaz</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
@@ -11,282 +11,368 @@
         padding: 0;
         box-sizing: border-box;
       }
+
       body {
         font-family: "Segoe UI", sans-serif;
-        background-color: #ffffff;
-        color: #333;
+        background-color: #fff;
+        color: #222;
+        overflow-x: hidden;
+        position: relative;
         line-height: 1.6;
       }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url("img/slider33.png");
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        z-index: -1;
+      }
+
       header {
-        background-color: white;
+        background: #fff;
         padding: 20px 40px;
+        border-bottom: 1px solid #ddd;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid #ddd;
         position: sticky;
         top: 0;
         z-index: 1000;
       }
+
       .logo {
-        font-size: 22px;
-        font-weight: bold;
-        color: #003366;
+        font-weight: 900;
+        font-size: 28px;
+        color: #f60202;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
       }
+
       nav a {
-        margin-left: 30px;
+        margin-left: 25px;
         text-decoration: none;
         color: #003366;
         font-weight: 500;
         transition: 0.3s;
       }
+
       nav a:hover {
         color: #f25c05;
       }
-      .container {
-        padding: 60px 20px;
-        max-width: 1200px;
-        margin: auto;
+
+      nav a.active {
+        color: #f25c05;
+        font-weight: 700;
       }
+
+      .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 60px 30px 30px;
+      }
+
       h1 {
         text-align: center;
-        font-size: 36px;
+        font-size: 32px;
+        color: #f6f8f9;
         margin-bottom: 10px;
-        color: #002244;
       }
-      p.subtitle {
+
+      .subtitle {
         text-align: center;
-        color: #555;
-        margin-bottom: 40px;
+        font-size: 14px;
+        color: #f7f5f5;
+        margin-bottom: 30px;
       }
+
       .grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
+        gap: 16px;
       }
+
       .card {
-        background-color: #f9f9f9;
-        border-radius: 10px;
-        padding: 30px 20px;
-        text-align: center;
-        transition: transform 0.3s;
-        opacity: 0;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 20px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        overflow: hidden;
+        color: #111;
+        transition: transform 0.3s ease;
       }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 0;
+        border-radius: 20px;
+      }
+
+      .card h3,
+      .card p {
+        position: relative;
+        z-index: 1;
+      }
+
+      .card h3 {
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 5px;
+      }
+
+      .card p {
+        font-size: 13px;
+        color: #222;
+      }
+
       .card:hover {
         transform: translateY(-5px);
+        cursor: pointer;
       }
-      .card img {
-        width: 60px;
-        height: 60px;
-        object-fit: contain;
-        margin-bottom: 10px;
+
+      .dogalgaz {
+        background-image: url("img/dogalgaz.jpg");
       }
-      .card h3 {
-        margin-top: 10px;
-        font-size: 18px;
-        color: #f25c05;
+      .kombikart {
+        background-image: url("img/kombi.png");
       }
-      .card.blue h3 {
-        color: #0033cc;
+      .bakim {
+        background-image: url("img/bakim.png");
       }
-      .card p {
-        font-size: 14px;
-        color: #444;
-        margin-top: 10px;
+      .kalorifer {
+        background-image: url("img/kalorifertesisati.jpg");
       }
+      .yerdenisitma {
+        background-image: url("img/yerdenisitma.jpg");
+      }
+      .sutesisati {
+        background-image: url("img/sutesisati.jpg");
+      }
+      .yangin {
+        background-image: url("img/yangintesisati.jpg");
+      }
+      .pissu {
+        background-image: url("img/pissu.jpg");
+      }
+      .vitrifiye {
+        background-image: url("img/vitrifiye.png");
+      }
+      .havalandirma {
+        background-image: url("img/havalandirma.jpg");
+      }
+      .proje {
+        background-image: url("img/proje.jpg");
+      }
+
       .faq {
-        margin-top: 80px;
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(8px);
+        color: #000;
+        padding: 20px 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
-      .faq h2 {
-        font-size: 28px;
-        color: #002244;
-        margin-bottom: 20px;
-        text-align: center;
+
+      .faq:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       }
-      .faq-item {
-        margin-bottom: 20px;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
-      }
-      .faq-item h4 {
+
+      .faq h3 {
         font-size: 18px;
-        color: #f25c05;
+        font-weight: bold;
+        margin: 0;
+        line-height: 1.4;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
-      .faq-item p {
-        font-size: 14px;
-        color: #444;
-        margin-top: 5px;
+
+      .faq h3::before {
+        content: "❓";
+        font-size: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .card {
+          height: 160px;
+          padding: 15px;
+        }
+
+        .card h3 {
+          font-size: 18px;
+        }
+
+        .card p {
+          font-size: 12px;
+        }
       }
     </style>
   </head>
+
   <body>
     <header>
-      <div class="logo">KIVANÇ DOĞALGAZ</div>
+      <img src="img/logo.png" alt="Logo" style="height: 101px; width: auto" />
       <nav>
         <a href="index.html">Ana Sayfa</a>
         <a href="hakkimizda.html">Hakkımızda</a>
-        <a href="hizmetler.html">Hizmetler</a>
+        <a href="hizmetler.html" class="active">Hizmetler</a>
         <a href="iletisim.html">İletişim</a>
       </nav>
     </header>
 
-    <div class="container">
-      <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-offset="200">
-        Hizmetler
-      </h1>
-      <p
-        class="subtitle"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-offset="200"
-      >
-        Eviniz veya iş yeriniz için güvenli doğalgaz altyapı çözümleri.
+    <main class="container">
+      <h1>Hizmetlerimiz</h1>
+      <p class="subtitle">
+        Kaliteli ve güvenilir hizmetlerimizle yanınızdayız.
       </p>
+
       <div class="grid">
-        <div
-          class="card"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-dogalgaz.png" alt="Doğalgaz" />
+        <div class="card dogalgaz" data-aos="fade-up">
           <h3>DOĞALGAZ</h3>
-          <p>Eviniz veya iş yeriniz için güvenli doğalgaz altyapı çözümleri.</p>
+          <p>Güvenli doğalgaz altyapı çözümleri.</p>
         </div>
-        <div
-          class="card blue"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-proje.png" alt="Proje" />
-          <h3>PROJE</h3>
-          <p>
-            Mühendislerimiz tarafından çizilen TSE uyumlu doğalgaz projeleri
-          </p>
+        <div class="card bakim" data-aos="fade-up">
+          <h3>BAKIM</h3>
+          <p>Kombi ve tesisat bakımı.</p>
         </div>
-        <div
-          class="card"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-kombi.png" alt="Kombi" />
+        <div class="card kombikart" data-aos="fade-up">
           <h3>KOMBİ</h3>
-          <p>Marka bağımsız kombi satış ve montaj hizmeti</p>
+          <p>Satış ve montaj hizmetleri.</p>
         </div>
-        <div
-          class="card"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-kalorifer.png" alt="Kalorifer" />
-          <h3>KALORİFER TESİSATI</h3>
-          <p>Kat kaloriferi sistemlerinin kurulumu ve bakımı.</p>
+        <div class="card kalorifer" data-aos="fade-up">
+          <h3>KALORİFER</h3>
+          <p>Kat kaloriferi sistem kurulumu.</p>
         </div>
-        <div
-          class="card blue"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-yerdenisitma.png" alt="Yerden Isıtma" />
+        <div class="card yerdenisitma" data-aos="fade-up">
           <h3>YERDEN ISITMA</h3>
-          <p>Konforlu ve enerji verimli yerden ısıtma uygulamaları</p>
+          <p>Enerji verimli çözümler.</p>
         </div>
-        <div
-          class="card blue"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-havalandirma.png" alt="Havalandırma" />
-          <h3>HAVALANDIRMA</h3>
-          <p>İç mekan hava kalitesini artıran sistem çözümleri</p>
+        <div class="card sutesisati" data-aos="fade-up">
+          <h3>SU TESİSATI</h3>
+          <p>Kurulum ve onarım hizmetleri.</p>
         </div>
-        <div
-          class="card"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-yangin.png" alt="Yangın" />
+        <div class="card yangin" data-aos="fade-up">
           <h3>YANGIN TESİSATI</h3>
-          <p>Risklere karşı yangın tesisatı projelendirilmesi ve montajı</p>
+          <p>Yangın sistemleri kurulumu.</p>
         </div>
-        <div
-          class="card blue"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-pissu.png" alt="Pis Su" />
+        <div class="card pissu" data-aos="fade-up">
           <h3>PİS SU</h3>
-          <p>Atık su tahliyesi için çözüm ve tesisat hizmetleri</p>
+          <p>Pis su tesisatı montajı.</p>
+        </div>
+        <div class="card vitrifiye" data-aos="fade-up">
+          <h3>VİTRİFİYE</h3>
+          <p>Banyo ürünleri montajı.</p>
+        </div>
+        <div class="card havalandirma" data-aos="fade-up">
+          <h3>HAVALANDIRMA</h3>
+          <p>Temiz hava sistemleri kurulumu.</p>
+        </div>
+        <div class="card proje" data-aos="fade-up">
+          <h3>PROJE</h3>
+          <p>TSE uyumlu mühendislik projeleri.</p>
         </div>
         <div
-          class="card blue"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
+          class="card faq"
+          data-aos="fade-up"
+          style="grid-column: span 2; max-width: 300px"
         >
-          <img src="assets/icon-vitrifiye.png" alt="Vitrifiye" />
-          <h3>VİTRİFİYE MONTAJI</h3>
-          <p>Lavabo, klozet ve diğer vitrifiye montajı</p>
-        </div>
-        <div
-          class="card"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-temizsu.png" alt="Temiz Su" />
-          <h3>TEMİZ SU</h3>
-          <p>Bina içi kullanma suyu tesisatı çözümleri</p>
-        </div>
-        <div
-          class="card blue"
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          data-aos-offset="150"
-        >
-          <img src="assets/icon-binasu.png" alt="Bina Suyu" />
-          <h3>BİNA İÇİ KULLANIM SUYU</h3>
-          <p>Lavabo, klozet ve diğer vitrifiye sistemleri</p>
+          <h3>Sık Sorulan Sorular</h3>
         </div>
       </div>
 
-      <div
-        class="faq"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-offset="200"
-      >
-        <h2>Sık Sorulan Sorular</h2>
-        <div class="faq-item">
-          <h4>Doğalgaz tesisatı yaptırmak ne kadar sürer?</h4>
-          <p>
-            Proje onayı ve kurulum süreci genellikle 1-3 gün içinde tamamlanır.
+      <section style="max-width: 800px; margin: 50px auto; padding: 20px">
+        <details
+          style="
+            margin-bottom: 15px;
+            background: #f1f1f1;
+            padding: 15px 20px;
+            border-radius: 10px;
+          "
+        >
+          <summary style="font-weight: bold; cursor: pointer; color: #003366">
+            Doğalgaz tesisat süreci ne kadar sürer?
+          </summary>
+          <p style="margin-top: 10px">
+            Genellikle 1-2 iş günü içinde tesisat kurulumu tamamlanır. Proje
+            onayı ve gaz açımıyla birlikte toplam süreç 3-5 gün sürebilir.
           </p>
-        </div>
-        <div class="faq-item">
-          <h4>Hangi bölgelerde hizmet veriyorsunuz?</h4>
-          <p>Kocaeli ve çevresinde doğalgaz hizmeti sunuyoruz.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Kombi montajı garanti kapsamında mı?</h4>
-          <p>Evet, tüm montaj işlemlerimiz faturalı ve garantilidir.</p>
-        </div>
-      </div>
-    </div>
+        </details>
+        <details
+          style="
+            margin-bottom: 15px;
+            background: #f1f1f1;
+            padding: 15px 20px;
+            border-radius: 10px;
+          "
+        >
+          <summary style="font-weight: bold; cursor: pointer; color: #003366">
+            Kombi montajından sonra hemen kullanılabilir mi?
+          </summary>
+          <p style="margin-top: 10px">
+            Evet, gaz açımı yapıldıktan sonra kombiniz hemen kullanılabilir
+            duruma gelir.
+          </p>
+        </details>
+        <details
+          style="
+            margin-bottom: 15px;
+            background: #f1f1f1;
+            padding: 15px 20px;
+            border-radius: 10px;
+          "
+        >
+          <summary style="font-weight: bold; cursor: pointer; color: #003366">
+            Yerden ısıtma mı, radyatör sistemi mi daha avantajlıdır?
+          </summary>
+          <p style="margin-top: 10px">
+            Yerden ısıtma genellikle daha konforlu ve enerji tasarrufludur.
+            Ancak yapınıza göre keşif sonrası öneri verilir.
+          </p>
+        </details>
+        <details
+          style="
+            margin-bottom: 15px;
+            background: #f1f1f1;
+            padding: 15px 20px;
+            border-radius: 10px;
+          "
+        >
+          <summary style="font-weight: bold; cursor: pointer; color: #003366">
+            Fiyat teklifi almak ücretli mi?
+          </summary>
+          <p style="margin-top: 10px">
+            Hayır, keşif ve fiyatlandırma hizmetimiz tamamen ücretsizdir.
+          </p>
+        </details>
+      </section>
+    </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init({
-        once: false,
-        mirror: true,
-      });
+      AOS.init();
     </script>
   </body>
 </html>

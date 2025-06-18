@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fatura Ödeme | Kıvanç Doğalgaz</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: #f2f2f2;
+      }
+
+      .modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      .modal-content h2 {
+        margin-bottom: 20px;
+        color: #003366;
+      }
+
+      .modal-content button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .modal-content .izgaz {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .modal-content .aktas {
+        background-color: #28a745;
+        color: white;
+      }
+
+      .modal-content .cancel {
+        background-color: #6c757d;
+        color: white;
+      }
+
+      .modal-content .info {
+        font-size: 13px;
+        color: #555;
+        margin-top: 15px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h2>Fatura Ödeme Seçimi</h2>
+        <button
+          class="izgaz"
+          onclick="window.open('https://onlineislemler.izgaz.com.tr', '_blank')"
+        >
+          İzgaz
+        </button>
+        <button
+          class="aktas"
+          onclick="window.open('https://online.aktasdogalgaz.com.tr', '_blank')"
+        >
+          Aktaş
+        </button>
+        <button class="cancel" onclick="window.location.href='index.html'">
+          İptal
+        </button>
+        <p class="info">
+          Ödemeler resmi sayfalara yönlendirilir. Sitemiz ödeme işlemi yapmaz.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

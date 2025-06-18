@@ -12,37 +12,58 @@
         padding: 0;
         box-sizing: border-box;
       }
+      /* ARKA PLAN için ::before */
       body {
+        position: relative;
         font-family: "Segoe UI", sans-serif;
-        background-color: #ffffff;
-        color: #333;
+        background-color: #000; /* Arka plan koyu yaptım, daha uyumlu */
+        color: #fff; /* Yazılar beyaz */
         line-height: 1.6;
+        min-height: 100vh;
+        overflow-x: hidden;
+        z-index: 0;
       }
+      body::before {
+        content: "";
+        position: fixed; /* Kaydırmadan etkilenmesin */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url("img/hakkimizda.png"); /* Arka plan resminiz */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 1; /* Opacity 1 yani tam görünür */
+        z-index: -1; /* İçeriklerin arkasında */
+      }
+
       header {
-        background-color: white;
+        background-color: rgba(245, 240, 240, 0.6); /* Hafif şeffaf koyu */
         padding: 20px 40px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #444;
         position: sticky;
         top: 0;
         z-index: 1000;
       }
-      header .logo {
-        font-size: 22px;
-        font-weight: bold;
-        color: #003366;
+      /* Logo yüksekliği 101px, genişlik otomatik */
+      header .logo img {
+        height: 101px;
+        width: auto;
+        display: block;
       }
       nav a {
         margin-left: 30px;
         text-decoration: none;
-        color: #003366;
+        color: #fff; /* Beyaz linkler */
         font-weight: 500;
         transition: 0.3s;
       }
       nav a:hover {
-        color: #f25c05;
+        color: #f25c05; /* Turuncu hover */
       }
       .bolum {
         padding: 50px 20px;
@@ -89,20 +110,22 @@
         border-left: 4px solid #f25c05;
         margin: 40px 0;
         padding-left: 20px;
+        color: #fff;
       }
       .timeline div {
         margin-bottom: 20px;
       }
       .yorumlar {
-        background-color: #f9f9f9;
+        background-color: rgba(255, 255, 255, 0.1); /* Açık şeffaf koyu arka plan */
         padding: 20px;
         border-radius: 8px;
         margin-top: 40px;
+        color: #fff;
       }
       .yorumlar blockquote {
         margin-bottom: 10px;
         font-style: italic;
-        color: #555;
+        color: #ddd; /* Açık gri beyaz */
       }
       .iletisim-cta {
         background-color: #f25c05;
@@ -134,7 +157,9 @@
   </head>
   <body>
     <header>
-      <div class="logo">KIVANÇ DOĞALGAZ</div>
+      <div class="logo">
+        <img src="img/logo.png" alt="Kıvanç Doğalgaz Logosu" />
+      </div>
       <nav>
         <a href="index.html">Ana Sayfa</a>
         <a href="hakkimizda.html">Hakkımızda</a>

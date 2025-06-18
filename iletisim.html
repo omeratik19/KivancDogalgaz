@@ -26,12 +26,11 @@
         align-items: center;
       }
 
-      .logo {
-        font-weight: bold;
-        font-size: 22px;
-        color: #003366;
-        letter-spacing: 1px;
-        margin-left: 0;
+      /* Logo PNG boyutlandırma */
+      .logo img {
+        height: 101px;
+        width: auto;
+        display: block;
       }
 
       .menu a {
@@ -197,7 +196,9 @@
   <body>
     <!-- HEADER -->
     <header>
-      <div class="logo">KIVANÇ DOĞALGAZ</div>
+      <div class="logo">
+        <img src="img/logo.png" alt="Kıvanç Doğalgaz Logo" />
+      </div>
       <nav class="menu">
         <a href="index.html">Ana Sayfa</a>
         <a href="hakkimizda.html">Hakkımızda</a>
