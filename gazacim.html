@@ -60,15 +60,23 @@
       button[type="submit"]:hover {
         background-color: #0056b3;
       }
+
+      .success-message {
+        text-align: center;
+        color: green;
+        font-weight: bold;
+        display: none;
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
     <div class="form-container">
       <h2>Gaz Açım Randevusu</h2>
       <form
-        action="mailto:randevu@kivancdogalgaz.com"
-        method="post"
-        enctype="text/plain"
+        id="randevuForm"
+        action="https://formspree.io/f/mrbkalln"
+        method="POST"
       >
         <div class="form-group">
           <label for="abone">İzgaz / Aktaş Abone Kodu:</label>
@@ -87,7 +95,32 @@
           <input type="email" id="email" name="Eposta" required />
         </div>
         <button type="submit">Randevu Talep Et</button>
+        <div class="success-message" id="basariMesaji">
+          Randevunuz başarıyla alındı.
+        </div>
       </form>
     </div>
+
+    <script>
+      const form = document.getElementById("randevuForm");
+      const mesaj = document.getElementById("basariMesaji");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          form.reset();
+          mesaj.style.display = "block";
+        } else {
+          alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+        }
+      });
+    </script>
   </body>
 </html>

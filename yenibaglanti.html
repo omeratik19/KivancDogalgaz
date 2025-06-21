@@ -60,15 +60,23 @@
       button[type="submit"]:hover {
         background-color: #0056b3;
       }
+
+      .success-message {
+        text-align: center;
+        color: green;
+        font-weight: bold;
+        display: none;
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
     <div class="form-container">
       <h2>Yeni Bağlantı Başvuru Formu</h2>
       <form
-        action="mailto:basvurular@kivancdogalgaz.com"
-        method="post"
-        enctype="text/plain"
+        id="basvuruForm"
+        action="https://formspree.io/f/xanjdjdl"
+        method="POST"
       >
         <div class="form-group">
           <label for="ad">Ad:</label>
@@ -83,11 +91,44 @@
           <input type="email" id="email" name="Eposta" required />
         </div>
         <div class="form-group">
+          <label for="tel">Cep Telefonu:</label>
+          <input type="tel" id="tel" name="Telefon" required />
+        </div>
+        <div class="form-group">
           <label for="adres">Adres:</label>
-          <textarea id="adres" name="Adres" rows="4" required></textarea>
+          <textarea id="adres" name="Adres" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="aciklama">Açıklama:</label>
+          <textarea id="aciklama" name="Açıklama" rows="4"></textarea>
         </div>
         <button type="submit">Başvuruyu Gönder</button>
+        <div class="success-message" id="basariMesaji">
+          Başvurunuz başarıyla gönderildi.
+        </div>
       </form>
     </div>
+
+    <script>
+      const form = document.getElementById("basvuruForm");
+      const mesaj = document.getElementById("basariMesaji");
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          form.reset();
+          mesaj.style.display = "block";
+        } else {
+          alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+        }
+      });
+    </script>
   </body>
 </html>

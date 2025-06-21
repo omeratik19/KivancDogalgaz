@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hakkımızda | Kıvanç Doğalgaz</title>
-    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
       * {
@@ -12,69 +11,84 @@
         padding: 0;
         box-sizing: border-box;
       }
-      /* ARKA PLAN için ::before */
       body {
         position: relative;
         font-family: "Segoe UI", sans-serif;
-        background-color: #000; /* Arka plan koyu yaptım, daha uyumlu */
-        color: #fff; /* Yazılar beyaz */
+        background-color: #fff;
+        color: #000;
         line-height: 1.6;
         min-height: 100vh;
         overflow-x: hidden;
         z-index: 0;
       }
-      body::before {
-        content: "";
-        position: fixed; /* Kaydırmadan etkilenmesin */
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-image: url("img/hakkimizda.png"); /* Arka plan resminiz */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 1; /* Opacity 1 yani tam görünür */
-        z-index: -1; /* İçeriklerin arkasında */
-      }
-
       header {
-        background-color: rgba(245, 240, 240, 0.6); /* Hafif şeffaf koyu */
+        background-color: #fff;
         padding: 20px 40px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid #444;
+        border-bottom: 1px solid #ddd;
         position: sticky;
         top: 0;
         z-index: 1000;
       }
-      /* Logo yüksekliği 101px, genişlik otomatik */
       header .logo img {
         height: 101px;
         width: auto;
         display: block;
       }
+      nav {
+        display: flex;
+        align-items: center;
+      }
       nav a {
         margin-left: 30px;
         text-decoration: none;
-        color: #fff; /* Beyaz linkler */
+        color: #003399;
         font-weight: 500;
         transition: 0.3s;
       }
       nav a:hover {
-        color: #f25c05; /* Turuncu hover */
+        color: #f25c05;
+      }
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background: #000;
+        margin: 4px;
+        transition: 0.3s;
+      }
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+        nav {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          background-color: rgba(255, 255, 255, 0.95);
+          position: absolute;
+          top: 101px;
+          left: 0;
+          text-align: center;
+        }
+        nav.active {
+          display: flex;
+        }
+        nav a {
+          margin: 15px 0;
+          font-size: 16px;
+        }
       }
       .bolum {
         padding: 50px 20px;
         max-width: 1200px;
         margin: auto;
-      }
-      .satir,
-      .timeline,
-      .yorumlar,
-      .iletisim-cta {
-        opacity: 0;
       }
       .satir {
         display: flex;
@@ -82,11 +96,9 @@
         gap: 40px;
         margin: 40px 0;
         align-items: center;
+        opacity: 0;
       }
-      .yazi {
-        flex: 1;
-        min-width: 280px;
-      }
+      .yazi,
       .resim {
         flex: 1;
         min-width: 280px;
@@ -96,7 +108,7 @@
         border-radius: 10px;
       }
       .bolum-baslik {
-        color: #f25c05;
+        color: #003399;
         font-size: 24px;
         margin-bottom: 10px;
       }
@@ -107,51 +119,41 @@
         margin-bottom: 8px;
       }
       .timeline {
-        border-left: 4px solid #f25c05;
+        border-left: 4px solid #003399;
         margin: 40px 0;
         padding-left: 20px;
-        color: #fff;
+        color: #000;
+        opacity: 0;
       }
       .timeline div {
         margin-bottom: 20px;
       }
       .yorumlar {
-        background-color: rgba(255, 255, 255, 0.1); /* Açık şeffaf koyu arka plan */
+        background-color: rgba(0, 0, 0, 0.05);
         padding: 20px;
         border-radius: 8px;
         margin-top: 40px;
-        color: #fff;
+        color: #000;
+        opacity: 0;
       }
       .yorumlar blockquote {
         margin-bottom: 10px;
         font-style: italic;
-        color: #ddd; /* Açık gri beyaz */
+        color: #555;
       }
       .iletisim-cta {
-        background-color: #f25c05;
+        background-color: #003399;
         color: white;
         text-align: center;
         padding: 30px;
         border-radius: 10px;
         margin: 60px auto;
+        opacity: 0;
       }
       .iletisim-cta a {
         color: white;
         font-weight: bold;
         text-decoration: underline;
-      }
-      @media (max-width: 768px) {
-        .satir {
-          flex-direction: column;
-        }
-        nav a {
-          margin-left: 15px;
-          font-size: 14px;
-        }
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
       }
     </style>
   </head>
@@ -160,7 +162,12 @@
       <div class="logo">
         <img src="img/logo.png" alt="Kıvanç Doğalgaz Logosu" />
       </div>
-      <nav>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <nav id="navLinks">
         <a href="index.html">Ana Sayfa</a>
         <a href="hakkimizda.html">Hakkımızda</a>
         <a href="hizmetler.html">Hizmetler</a>
@@ -168,11 +175,12 @@
       </nav>
     </header>
 
+    <!-- içerik burada devam eder -->
     <div class="bolum">
       <div
         class="satir"
         data-aos="fade-right"
-        data-aos-duration="1200"
+        data-aos-duration="1000"
         data-aos-offset="200"
       >
         <div class="yazi">
@@ -194,7 +202,7 @@
       <div
         class="satir"
         data-aos="fade-up"
-        data-aos-duration="1200"
+        data-aos-duration="1000"
         data-aos-offset="200"
       >
         <div class="yazi">
@@ -216,26 +224,25 @@
       <div
         class="satir"
         data-aos="zoom-in"
-        data-aos-duration="1200"
+        data-aos-duration="1000"
         data-aos-offset="200"
       >
         <div class="yazi">
           <div class="bolum-baslik">Değerlerimiz</div>
           <ul>
             <li>
-              <strong>Müşteri Odaklılık:</strong> Her zaman müşteri
-              memnuniyetini ön planda tutarız.
+              <strong>Müşteri Odaklılık:</strong> Memnuniyet her zaman ön
+              planda.
             </li>
             <li>
-              <strong>Güvenlik:</strong> En yüksek güvenlik standartlarına uygun
+              <strong>Güvenlik:</strong> En yüksek güvenlik standartlarıyla
               çalışırız.
             </li>
             <li>
               <strong>Dürüstlük:</strong> Açık ve dürüst iletişime önem veririz.
             </li>
             <li>
-              <strong>Kalite:</strong> Yüksek kaliteli ürün ve hizmetler
-              sunarız.
+              <strong>Kalite:</strong> Yüksek kaliteli ürün ve hizmet sunarız.
             </li>
           </ul>
         </div>
@@ -247,14 +254,14 @@
       <div
         class="satir"
         data-aos="fade-up"
-        data-aos-duration="1200"
+        data-aos-duration="1000"
         data-aos-offset="200"
       >
         <div class="yazi">
           <div class="bolum-baslik">Kurucu Mesajı</div>
           <p>
-            Bu yola çıkarken önceliğim her zaman güvenlikti. İlk tesisatımızdan
-            bu yana, titizlikle ve dikkatle çalışıyorum.
+            Bu yola çıkarken önceliğim güvenlikti. İlk tesisatımızdan bu yana
+            titizlikle çalışıyorum.
           </p>
           <p>
             İnsanların evlerine güvenli bir şekilde doğalgaz ulaştırmanın
@@ -269,7 +276,7 @@
       <div
         class="timeline"
         data-aos="fade-up"
-        data-aos-duration="1200"
+        data-aos-duration="1000"
         data-aos-offset="200"
       >
         <div><strong>2004:</strong> İlk tesisat hizmeti verildi.</div>
@@ -283,7 +290,7 @@
       <div
         class="yorumlar"
         data-aos="fade-up"
-        data-aos-duration="1200"
+        data-aos-duration="1000"
         data-aos-offset="200"
       >
         <blockquote>
@@ -296,7 +303,7 @@
       <div
         class="iletisim-cta"
         data-aos="zoom-in"
-        data-aos-duration="1200"
+        data-aos-duration="1000"
         data-aos-offset="200"
       >
         <p>Güvenli enerji çözümlerimizle tanışmak ister misiniz?</p>
@@ -304,13 +311,14 @@
       </div>
     </div>
 
-    <!-- AOS JS -->
+    <script>
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init({
-        once: false,
-        mirror: true,
-      });
+      AOS.init({ once: false, mirror: true });
     </script>
   </body>
 </html>
