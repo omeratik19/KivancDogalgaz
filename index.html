@@ -17,15 +17,21 @@
         background: url("img/ana-arkaplan.jpg") no-repeat center center;
         background-size: cover;
         background-attachment: scroll;
+        padding-top: 141px;
       }
 
       header {
-        background-color: #ffffffdd;
+        background-color: #fff;
         padding: 20px 40px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0 2px 12px #0001;
       }
 
       .logo-img {
@@ -615,8 +621,8 @@
           <div class="process-step">
             <div class="process-img-wrapper">
               <img
-                src="tema/genel/uploads/hizmetsurec/2149718442_1.jpg"
-                alt="Ev Aboneliği"
+                src="img/musteri-evinde-kesif.jpeg"
+                alt="Müşteri Evinde Keşif"
               />
               <div class="process-label">Müşteri Evinde Keşif</div>
             </div>
@@ -639,32 +645,9 @@
           </div>
           <div class="process-step">
             <div class="process-img-wrapper">
-              <img src="img/isyeriaboneligi.jpeg" alt="İş Yeri Aboneliği" />
-              <div class="process-label">Müşteri ile Sözleşme</div>
-            </div>
-            <div class="process-icon">
-              <!-- Office/building icon SVG -->
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <rect x="3" y="7" width="18" height="13" rx="2" />
-                <path d="M16 3v4M8 3v4" />
-                <path d="M12 17v-4" />
-              </svg>
-            </div>
-            <div class="process-step-title">Müşteri ile Sözleşme</div>
-            <div class="process-step-desc">
-              Keşif sonrası hizmet sözleşmesi imzalanır.
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="process-img-wrapper">
               <img
-                src="tema/genel/uploads/hizmetsurec/2148101634.jpg"
-                alt="Ödeme Noktaları"
+                src="img/izgaz-agdas-abonelik.jpeg"
+                alt="İzgaz/Agdaş Abonelik"
               />
               <div class="process-label">
                 Müşterinin İzgaz/Agdaş Abonelik Süreci
@@ -691,7 +674,7 @@
           </div>
           <div class="process-step">
             <div class="process-img-wrapper">
-              <img src="img/baglantisozlesmesi.jpeg" alt="Proje Onay" />
+              <img src="img/izgaz-agdas-abonelik.jpeg" alt="Proje Onay" />
               <div class="process-label">İzgaz/Agdaş Proje Onay Süreci</div>
             </div>
             <div class="process-icon">
@@ -740,10 +723,7 @@
           </div>
           <div class="process-step">
             <div class="process-img-wrapper">
-              <img
-                src="tema/genel/uploads/hizmetsurec/2148101634.jpg"
-                alt="Gaz Açım"
-              />
+              <img src="img/gaz-acim.jpeg" alt="Gaz Açım" />
               <div class="process-label">Gaz Açım</div>
             </div>
             <div class="process-icon">
@@ -776,7 +756,7 @@
       <div class="bolgeler-title">Hizmet Bölgelerimiz</div>
       <div class="bolgeler-cards">
         <div class="bolge-card">
-          <h3>Muş Genel Müdürlüğü</h3>
+          <h3>SAKARYA</h3>
           <div class="bolge-info">
             <span
               ><svg
@@ -790,7 +770,7 @@
                 />
                 <circle cx="12" cy="13" r="3" /></svg
             ></span>
-            Tandoğan Köyü, Bitlis Yolu Üzeri 8. KM. No:335 Merkez, MUŞ
+            Sakarya
           </div>
           <div class="bolge-info phone-icon">
             <span
@@ -799,7 +779,7 @@
                   d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"
                 /></svg
             ></span>
-            +90 436 213 0888
+            +90 532 559 81 87
           </div>
           <div class="bolge-info">
             <span
@@ -812,11 +792,11 @@
                 <path d="M4 4h16v16H4z" />
                 <path d="M22 6l-10 7L2 6" /></svg
             ></span>
-            info@dogugaz.com.tr
+            kivancdogalgaz@gmail.com
           </div>
         </div>
         <div class="bolge-card">
-          <h3>Bitlis Şube Müdürlüğü</h3>
+          <h3>KOCAELİ</h3>
           <div class="bolge-info">
             <span
               ><svg
@@ -830,8 +810,7 @@
                 />
                 <circle cx="12" cy="13" r="3" /></svg
             ></span>
-            Hüsrev Paşa Mah. Ahmet Eren Bulvarı 302 Toki Konutları A1 Blok No:2
-            Merkez, Bitlis
+            Kocaeli
           </div>
           <div class="bolge-info phone-icon">
             <span
@@ -840,11 +819,24 @@
                   d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"
                 /></svg
             ></span>
-            +90 434 224 1921
+            +90 532 559 81 87
+          </div>
+          <div class="bolge-info">
+            <span
+              ><svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 4h16v16H4z" />
+                <path d="M22 6l-10 7L2 6" /></svg
+            ></span>
+            kivancdogalgaz@gmail.com
           </div>
         </div>
         <div class="bolge-card">
-          <h3>Iğdır Bölge Müdürlüğü</h3>
+          <h3>GEBZE</h3>
           <div class="bolge-info">
             <span
               ><svg
@@ -858,7 +850,7 @@
                 />
                 <circle cx="12" cy="13" r="3" /></svg
             ></span>
-            Cumhuriyet, Millet Cd., 76000 Iğdır Merkez/Iğdır
+            Gebze
           </div>
           <div class="bolge-info phone-icon">
             <span
@@ -867,11 +859,24 @@
                   d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"
                 /></svg
             ></span>
-            0 476 226 15 00
+            +90 532 559 81 87
+          </div>
+          <div class="bolge-info">
+            <span
+              ><svg
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4 4h16v16H4z" />
+                <path d="M22 6l-10 7L2 6" /></svg
+            ></span>
+            kivancdogalgaz@gmail.com
           </div>
         </div>
         <div class="bolge-card">
-          <h3>Kars Bölge Müdürlüğü</h3>
+          <h3>YALOVA</h3>
           <div class="bolge-info">
             <span
               ><svg
@@ -881,11 +886,11 @@
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 3.582-8 8-8s8 3.582 8 8c0 4.418-3.582 8-8 8z"
+                  d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 3.582-8 8-8s8 3.582 8 8c0 4.418 3.582 8-8 8z"
                 />
                 <circle cx="12" cy="13" r="3" /></svg
             ></span>
-            Ortakapı Mah. Şehit Yusufbey Cad. No:27 36000 Merkez/KARS
+            Yalova
           </div>
           <div class="bolge-info phone-icon">
             <span
@@ -894,11 +899,8 @@
                   d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"
                 /></svg
             ></span>
-            0474 223 1 187
+            +90 532 559 81 87
           </div>
-        </div>
-        <div class="bolge-card">
-          <h3>Ardahan Şube Müdürlüğü</h3>
           <div class="bolge-info">
             <span
               ><svg
@@ -907,21 +909,10 @@
                 stroke-width="2"
                 viewBox="0 0 24 24"
               >
-                <path
-                  d="M12 21c-4.418 0-8-3.582-8-8 0-4.418 3.582-8 8-8s8 3.582 8 8c0 4.418-3.582 8-8 8z"
-                />
-                <circle cx="12" cy="13" r="3" /></svg
+                <path d="M4 4h16v16H4z" />
+                <path d="M22 6l-10 7L2 6" /></svg
             ></span>
-            Karagöl Mahallesi, Serhat Sk. No:25, 75000 Merkez/Ardahan
-          </div>
-          <div class="bolge-info phone-icon">
-            <span
-              ><svg fill="#4fc3f7" viewBox="0 0 24 24" width="26" height="26">
-                <path
-                  d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.07 21 3 13.93 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.24 1.01l-2.2 2.2z"
-                /></svg
-            ></span>
-            0474 223 1 187
+            kivancdogalgaz@gmail.com
           </div>
         </div>
       </div>
@@ -949,6 +940,38 @@
       </div>
       <div>
         <p>© 2025 Kıvanç Doğalgaz<br />Tüm hakları saklıdır.</p>
+        <div style="margin-top: 10px; font-size: 14px">
+          Bu site ATK Codes tarafından yazılmıştır.<br />
+          <span style="display: inline-flex; align-items: center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#a259ff"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="vertical-align: middle"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.5" y2="6.5" />
+            </svg>
+            <a
+              href="https://www.instagram.com/atkcodes/"
+              target="_blank"
+              style="
+                color: #a259ff;
+                font-weight: bold;
+                text-decoration: none;
+                margin-left: 8px;
+              "
+              >: @atkcodes</a
+            >
+          </span>
+        </div>
       </div>
     </footer>
 
